@@ -1,6 +1,7 @@
-import streamlit as st
-import model_text_gen
-import model_image_gen
+import importlib
+from streamlit import st
+from model_text_gen import *
+from model_image_gen import *
 import time
 from PIL import Image
 from dotenv import load_dotenv
