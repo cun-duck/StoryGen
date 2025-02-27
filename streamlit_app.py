@@ -22,11 +22,11 @@ IMAGE_STYLES = [
 
 st.title("Storyboard Generator")
 
-st.sidebar.header("User Input")
+st.sidebar.header(" 🛠️ Pengaturan")
 
-story_idea = st.sidebar.text_area("💭", "An elephant's adventure in a jungle...")
+story_idea = st.sidebar.text_area("💭", "Petualangan Semut")
 
-num_scenes = st.sidebar.slider("🎞️ Number of Scenes", 1, 10, 3)
+num_scenes = st.sidebar.slider("🎞️ Jumlah Scenes", 1, 10, 3)
 
 image_style = st.sidebar.selectbox("😎 Image Style", IMAGE_STYLES)
 
@@ -34,7 +34,7 @@ if st.sidebar.button("Create Storyboard"):
     if not story_idea:
         st.warning("Please enter a story idea.")
     else:
-        with st.spinner("💿 Cooking the Rice..."):
+        with st.spinner("Masak Aer....."):
             try:
                 try:
                     user_language = langdetect.detect(story_idea)
@@ -70,7 +70,10 @@ if st.sidebar.button("Create Storyboard"):
 if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
 
-    st.header("Storyboard Dashboard")
+    st.markdown(
+    "<h1 style='color: green; font-weight: bold; text-align: center;'>Storyboard Dashboard</h1>",
+    unsafe_allow_html=True
+)
 
     if 'generated_images' in st.session_state and st.session_state['images_generated']:
         generated_images = st.session_state['generated_images']
