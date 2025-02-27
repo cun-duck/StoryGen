@@ -27,7 +27,7 @@ Ensure separate output for each scene with the format above."""
     ]
 
     completion = client.chat.completions.create(
-        model="Qwen/Qwen2.5-Coder-32B-Instruct",
+        model="Qwen/QwQ-32B-Preview",
         messages=messages,
         max_tokens=1500,
     )
