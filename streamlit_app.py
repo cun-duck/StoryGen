@@ -11,7 +11,6 @@ import langdetect
 HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN")
 HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN")
 
-
 st.markdown(
     """
     <style>
@@ -35,13 +34,10 @@ IMAGE_STYLES = [
 ]
 
 st.title("Storyboard Generator")
-
 st.sidebar.header(" 🛠️ Pengaturan")
 
 story_idea = st.sidebar.text_area("💭", "Petualangan Semut")
-
 num_scenes = st.sidebar.slider("🎞️ Jumlah Scenes", 1, 10, 3)
-
 image_style = st.sidebar.selectbox("😎 Image Style", IMAGE_STYLES)
 
 if st.sidebar.button("Create Storyboard"):
@@ -55,14 +51,14 @@ if st.sidebar.button("Create Storyboard"):
                 except langdetect.LangDetectException:
                     user_language = "en"
 
-                scenes_data = model_text_gen.generate_story_content(
+                scenes_data = generate_story_content(
                     story_idea, num_scenes, HF_TOKEN_TEXT_GEN, user_language=user_language
                 )
                 st.session_state['scenes_data'] = scenes_data
 
                 generated_images = []
                 for i, scene in enumerate(scenes_data):
-                    image = model_image_gen.generate_image_from_prompt(
+                    image = generate_image_from_prompt(
                         scene['prompt'], HF_TOKEN_IMAGE_GEN, image_style
                     )
                     print(f"Debug: Image object type for scene {i+1} from model_image_gen: {type(image)}") 
@@ -80,24 +76,23 @@ if st.sidebar.button("Create Storyboard"):
                 st.session_state['generated_images'] = None
                 st.session_state['images_generated'] = False
 
-
 if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
 
 st.markdown("<h1 class='centered-header'>Storyboard Dashboard</h1>", unsafe_allow_html=True)
 
-    if 'generated_images' in st.session_state and st.session_state['images_generated']:
-        generated_images = st.session_state['generated_images']
+if 'generated_images' in st.session_state and st.session_state['images_generated']:
+    generated_images = st.session_state['generated_images']
 
-        for i, scene in enumerate(scenes_data):
-            st.subheader(f"Scene {i+1}")
-            col_narasi, col_gambar = st.columns(2)
+    for i, scene in enumerate(scenes_data):
+        st.subheader(f"Scene {i+1}")
+        col_narasi, col_gambar = st.columns(2)
 
-            with col_narasi:
-                st.write(scene['narasi'])
+        with col_narasi:
+            st.write(scene['narasi'])
 
-            with col_gambar:
-                if generated_images[i]:
-                    st.image(generated_images[i], caption=f"Scene {i+1} Image", use_container_width=True)
-                else:
-                    st.error("Failed to generate image for this scene.")
+        with col_gambar:
+            if generated_images[i]:
+                st.image(generated_images[i], caption=f"Scene {i+1} Image", use_container_width=True)
+            else:
+                st.error("Failed to generate image for this scene.")
