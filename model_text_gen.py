@@ -2,7 +2,7 @@ from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 import os
 
-HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN", os.getenv("HF_TOKEN_TEXT_GEN"))
+HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN")
 
 def generate_story_content(story_idea, num_scenes, hf_token_text_gen=None, user_language="en"):
     client = InferenceClient(
