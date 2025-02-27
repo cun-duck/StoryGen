@@ -1,4 +1,4 @@
-import streamlit
+import streamlit as st
 from huggingface_hub import InferenceClient
 from PIL import Image
 import time
