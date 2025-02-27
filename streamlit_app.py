@@ -65,7 +65,7 @@ if st.sidebar.button("Create Storyboard"):
                     image = model_image_gen.generate_image_from_prompt(
                         scene['prompt'], HF_TOKEN_IMAGE_GEN, image_style
                     )
-                    print(f"Debug: Image object type for scene {i+1} from model_image_gen: {type(image)}") # <-- TAMBAHKAN BARIS INI
+                    print(f"Debug: Image object type for scene {i+1} from model_image_gen: {type(image)}") 
                     generated_images.append(image)
                     time.sleep(3)
 
