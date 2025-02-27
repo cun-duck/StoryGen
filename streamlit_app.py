@@ -71,7 +71,7 @@ if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
 
     st.markdown(
-    "<h1 style='color: green; font-weight: bold; text-align: center;'>Storyboard Dashboard</h1>",
+    "<h1 style='color: gray; font-weight: bold; text-align: center;'>Storyboard Dashboard</h1>",
     unsafe_allow_html=True
 )
 
