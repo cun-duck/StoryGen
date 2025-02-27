@@ -2,3 +2,4 @@ streamlit
 huggingface_hub
 pillow
 langdetect
+python-dotenv
