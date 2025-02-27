@@ -16,7 +16,7 @@ st.markdown(
     """
     <style>
     .centered-header {
-        color: gray;
+        color: #bfbfbf;
         font-weight: bold;
         text-align: center;
     }
@@ -80,7 +80,7 @@ if st.sidebar.button("Create Storyboard"):
 if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
 
-st.markdown("<h1 class='centered-header'>Storyboard Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h2 class='centered-header'>Storyboard</h2>", unsafe_allow_html=True)
 
 if 'generated_images' in st.session_state and st.session_state['images_generated']:
     generated_images = st.session_state['generated_images']
