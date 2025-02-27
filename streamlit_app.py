@@ -1,7 +1,7 @@
 import streamlit as st
 import importlib
-from model_text_gen import generate_story_content, parse_story_output
-from model_image_gen import generate_image_from_prompt
+import model_text_gen
+import model_image_gen
 import time
 from PIL import Image
 from dotenv import load_dotenv
