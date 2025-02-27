@@ -8,11 +8,9 @@ from dotenv import load_dotenv
 import os
 import langdetect
 
-HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN", os.getenv("HF_TOKEN_IMAGE_GEN"))
-HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN", os.getenv("HF_TOKEN_TEXT_GEN"))
+HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN", 
+HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN", 
 
-HF_TOKEN_TEXT_GEN = os.environ.get("HF_TOKEN_TEXT_GEN")
-HF_TOKEN_IMAGE_GEN = os.environ.get("HF_TOKEN_IMAGE_GEN")
 IMAGE_STYLES = [
     "Pixar Cartoon Style",
     "Hyper Realism style",
