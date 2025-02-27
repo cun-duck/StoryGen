@@ -11,6 +11,7 @@ import langdetect
 HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN")
 HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN")
 
+
 st.markdown(
     """
     <style>
@@ -50,14 +51,14 @@ if st.sidebar.button("Create Storyboard"):
                 except langdetect.LangDetectException:
                     user_language = "en"
 
-                scenes_data = generate_story_content(
+                scenes_data = model_text_gen.generate_story_content(
                     story_idea, num_scenes, HF_TOKEN_TEXT_GEN, user_language=user_language
                 )
                 st.session_state['scenes_data'] = scenes_data
 
                 generated_images = []
                 for i, scene in enumerate(scenes_data):
-                    image = generate_image_from_prompt(
+                    image = model_image_gen.generate_image_from_prompt(
                         scene['prompt'], HF_TOKEN_IMAGE_GEN, image_style
                     )
                     print(f"Debug: Image object type for scene {i+1} from model_image_gen: {type(image)}") 
@@ -74,6 +75,7 @@ if st.sidebar.button("Create Storyboard"):
                 st.session_state['scenes_data'] = None
                 st.session_state['generated_images'] = None
                 st.session_state['images_generated'] = False
+
 
 if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
