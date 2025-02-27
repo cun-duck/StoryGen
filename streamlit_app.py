@@ -16,7 +16,7 @@ st.markdown(
     """
     <style>
     .centered-header {
-        color: green;
+        color: gray;
         font-weight: bold;
         text-align: center;
     }
