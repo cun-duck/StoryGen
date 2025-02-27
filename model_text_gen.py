@@ -1,3 +1,4 @@
+import streamlit
 from streamlit import st
 from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
