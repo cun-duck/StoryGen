@@ -1,4 +1,4 @@
-from streamlit import st
+import streamlit 
 import importlib
 import model_text_gen 
 import model_image_gen 
