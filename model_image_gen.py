@@ -1,3 +1,4 @@
+from streamlit import st
 from huggingface_hub import InferenceClient
 from PIL import Image
 import time
