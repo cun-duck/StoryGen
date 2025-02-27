@@ -33,7 +33,6 @@ IMAGE_STYLES = [
     "Deep Fantasy Style"
 ]
 
-st.title("Storyboard Generator")
 st.sidebar.header(" 🛠️ Pengaturan")
 
 story_idea = st.sidebar.text_area("💭", "Petualangan Semut")
