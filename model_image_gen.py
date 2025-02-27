@@ -4,7 +4,7 @@ import time
 from dotenv import load_dotenv
 import os
 
-HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN", os.getenv("HF_TOKEN_IMAGE_GEN"))
+HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN")
 
 STYLE_PROMPT_ENHANCEMENTS = {
     "Pixar Cartoon Style": "3D Pixar cartoon style, reflecting wonder and joy, a playful, adventures.colorful.",
