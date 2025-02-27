@@ -1,0 +1,5 @@
+streamlit
+huggingface_hub
+pillow
+os
+langdetect
