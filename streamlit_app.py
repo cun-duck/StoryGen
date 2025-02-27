@@ -11,6 +11,20 @@ import langdetect
 HF_TOKEN_IMAGE_GEN = st.secrets.get("HF_TOKEN_IMAGE_GEN")
 HF_TOKEN_TEXT_GEN = st.secrets.get("HF_TOKEN_TEXT_GEN")
 
+
+st.markdown(
+    """
+    <style>
+    .centered-header {
+        color: green;
+        font-weight: bold;
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 IMAGE_STYLES = [
     "Pixar Cartoon Style",
     "Hyper Realism style",
@@ -70,10 +84,7 @@ if st.sidebar.button("Create Storyboard"):
 if 'scenes_data' in st.session_state and st.session_state['scenes_data']:
     scenes_data = st.session_state['scenes_data']
 
-    st.markdown(
-    "<h1 style='color: gray; font-weight: bold; text-align: center;'>Storyboard Dashboard</h1>",
-    unsafe_allow_html=True
-)
+st.markdown("<h1 class='centered-header'>Storyboard Dashboard</h1>", unsafe_allow_html=True)
 
     if 'generated_images' in st.session_state and st.session_state['images_generated']:
         generated_images = st.session_state['generated_images']
